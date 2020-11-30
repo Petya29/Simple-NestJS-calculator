@@ -1,4 +1,4 @@
-import { Controller, Get, Res, HttpStatus, Param, NotFoundException, Post, Body, Put, Delete, Req, Render } from '@nestjs/common';
+import { Controller, Get, Res, HttpStatus, Param, NotFoundException, Post, Body, Put, Delete, Request, Render, Query } from '@nestjs/common';
 import { CalculatorService } from './calculator.service';
 import { CreateResultDTO } from '../calc/dto/create-result.dto';
 import { ValidateObjectId} from '../../shared/pipes/validate-object-id.pipes';
@@ -29,7 +29,7 @@ export class CalculatorController {
     }
 
     @Post('/')
-    async createResult(@Res() res, @Body() createResultDTO: CreateResultDTO) {
+    async createResult(@Res() res, @Body() createResultDTO: CreateResultDTO,@Query() query: CreateResultDTO) {
             const newResult = await this.calculatorService.addResult(createResultDTO);
             let hbsResult = newResult.result;
             return res.status(HttpStatus.OK).render('index', {hbsResult});
