@@ -3,16 +3,16 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CalculatorModule } from './calculator/calculator.module';
-import { UserModule } from './user/user.module';
+import { AuthModule } from './authorization/auth/auth.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb://localhost/nest-calc', { useNewUrlParser: true }),
     MongooseModule.forRoot('mongodb://localhost/nest-users', { useNewUrlParser: true }),
     CalculatorModule,
-    UserModule
+    AuthModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController,],
   providers: [AppService],
 })
 export class AppModule {}

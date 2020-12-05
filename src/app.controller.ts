@@ -9,10 +9,10 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @Render('index')  // Dynamic template rendering
+  @Render('main')  // Dynamic template rendering
   root(@Res() res: Response){
     return res.render(
-      this.appService.getCalculator(),
+      this.appService.getMain(),
     )
   }
 

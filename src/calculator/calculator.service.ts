@@ -10,6 +10,10 @@ export class CalculatorService {
 
     constructor(@InjectModel('Post') private readonly postModel : Model<Post>) { }
 
+    getCalculator(): string {
+        return 'index';
+      }
+
     async getResults(): Promise<Post[]> {
         const results = await this.postModel.find().exec();
         return results;

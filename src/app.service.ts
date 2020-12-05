@@ -5,4 +5,8 @@ export class AppService {
   getCalculator(): string {
     return 'index';
   }
+
+  getMain(): string {
+    return 'main';
+  }
 }

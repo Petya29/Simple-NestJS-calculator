@@ -10,6 +10,14 @@ export class CalculatorController {
 
     constructor( private calculatorService: CalculatorService) { }
 
+    @Get()
+    @Render('index')
+    root(@Res() res) {
+        return res.render(
+            this.calculatorService.getCalculator(),
+        )
+    }
+
     @Get('results')
     async getResults(@Res() res) {
         const results = await this.calculatorService.getResults();
