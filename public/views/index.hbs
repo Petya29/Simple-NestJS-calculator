@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <title>Calculator Nest</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div class="calc-body">
+
+            <div class="menu">
+                <button type="submit" id="btn-calculator">Calculator</button><br>
+                <button type="submit" id="btn-fibbonachi">Fibbonachi</button><br>
+                <button type="submit" id="btn-palindrome">Palindrome</button>
+            </div>
+
+            <div id="calculator-form">
+                <form action="/calculator" method="POST" id="calc-form">
+
+                    <input type="text" class="textInputs" name="val1" placeholder="Enter firts number" value="">
+                    <select id="choose-operation" name="calcOption">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">&#247;</option>
+                    </select>
+                    <input type="text" class="textInputs" name="val2" placeholder="Enter second number" value=""> =
+                    <input type="text" class="textInputs" id="calc-result" name="result" placeholder="result" value="{{hbsResult}}"></br>
+                    <select id="choose-type" name="numberType">
+                        <option value="simple">simple</option>
+                        <option value="complex">complex</option>
+                    </select>
+                    <button type="submit" id="submit-calc" value="calculate">calculate</button>
+                </form>
+            </div>
+
+            <div id="fibbonachi" class="hidden">
+                <span>FIBONACCI NUMBER SEQUENCE</span><br><br>
+                <span>Enter n </span>
+                <input type="text" id="fibN" value="" placeholder="n"> =
+                <input type="text" id="fibResult" value="" placeholder="result"><br>
+                <button type="submit" id="submit-calc" class="btnFib">calculate</button>
+            </div>
+
+            <div id="palindrome" class="hidden">
+                <span>PALINDROME CHECK</span><br><br>
+                <input type="text" id="palindromeCheck" value="" placeholder="Enter your string">=
+                <input type="text" id="palResult"  value="" placeholder="result"><br>
+                <button type="submit" id="submit-calc" class="btnPal">Is palindrome ?</button><br>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src = "../index.js"></script>
+
+</body>
+</html>

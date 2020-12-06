@@ -3,8 +3,10 @@ import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import { UsersDTO } from '../usersdb/dto/users.dto';
-import { userModel } from '../usersdb/interfaces/users.interface'
-import { Model } from 'mongoose'
+import { userModel } from '../usersdb/interfaces/users.interface';
+import { Model } from 'mongoose';
+import * as fs from 'fs';
+import * as path from 'path';
 
 @Injectable()
 export class AuthService {
@@ -36,9 +38,29 @@ export class AuthService {
       };
     }
 
-    async addUser(usersDTO: UsersDTO): Promise<userModel> {
+    async addUser(usersDTO: UsersDTO): Promise<userModel | String> {
       const newUser = new this.userModel(usersDTO)
-      return await newUser.save()
+      const temp = await this.usersService.findOneInDb(usersDTO.username)
+      const dirName = newUser.username
+      
+      if(temp != null){
+        return 'username incorrect'
+      }else{
+        fs.mkdir(path.join(__dirname, `../../../../src/authorization/users/data/${dirName}`), (err) => {
+          if(err){
+            return console.error(err)
+          }
+          console.log('mkdir!')
+        })
+        fs.appendFile(`src/authorization/users/data/${dirName}/${dirName}.json`, '', (err) => {
+          if(err){
+            return console.error(err)
+          }
+          return console.log('appendFile')
+        })
+        return await newUser.save()
+      }
+
     }
 
     async getUsers(): Promise<userModel[]> {

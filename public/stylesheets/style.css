@@ -1,0 +1,245 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: url(bgHouse.jpg) no-repeat center fixed;
+    background-size: cover;
+    color: #000000;
+    font-size: 20px;
+}
+
+.wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000000;
+}
+
+#calc-result {
+    text-align: center;
+    display: inline;
+    outline: none;
+    color: #000000;
+    margin-left: 0 !important;
+}
+
+#calc-form input, select {
+    outline: none;
+    margin-left: 10px;
+}
+
+#calc-form:first-child {
+    margin-left: 20px;
+}
+
+.calc-body, .login-body {
+    padding: 6%;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border-radius: 15px;
+}
+
+#submit-calc {
+    outline: none;
+    margin-right: 25px;
+    margin-top: 30px;
+    cursor: pointer;
+    width: 110px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#choose-operation {
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #000;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.textInputs {
+    height: 25px;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+
+#choose-type {
+    margin-left: 0;
+    margin-right: 20px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #000;
+    font-size: 20px;
+}
+
+#calculator-form {
+    position: relative;
+    z-index: 1;
+}
+
+#fibbonachi {
+    position: absolute;
+    z-index: 2;
+}
+
+#fibbonachi input {
+    text-align: center;
+    outline: none;
+    height: 25px;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+
+#fibN {
+    width: 50px;
+}
+
+#fibResult {
+    width: 300px;
+}
+
+#palindrome {
+    position: absolute;
+    z-index: 3;
+}
+
+#palindrome input {
+    text-align: center;
+    outline: none;
+    height: 25px;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+
+#calc-form {
+    margin-bottom: -25px;
+}
+
+.menu button {
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-left: -300px;
+    width: 110px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.hidden {
+    visibility:  hidden !important;
+}
+
+.login-popup, .register-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000000ad;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* .login-popup:target {
+    opacity: 1;
+    visibility: visible;
+} */
+
+/* .register-popup:target{
+    opacity: 1;
+    visibility: visible;
+} */
+
+.login-popup__body, .register-popup__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.login-popup__content, .register-popup__content {
+    background-color: #ffffff;
+    color: #000000;
+    width: 325px;
+    height: 400px;
+    padding: 30px;
+    color: #626262;
+}
+
+.popup-title {
+    font-size: 40px;
+    text-align: center;
+}
+
+.popup-text {
+    text-align: center;
+    margin-top: 75px;
+}
+
+.popup-text input {
+    margin-bottom: 30px;
+    padding: 8px;
+    outline: none;
+}
+
+#login-submit, #register-submit {
+    width: 100px;
+    height: 35px;
+    outline: none;
+    background-color: #ffffff;
+    color: #626262;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    border: 1px solid #626262;
+}
+
+#login-submit:focus, #register-submit:focus {
+    border-color: black;
+    color: black;
+}
+
+.popup-text input:nth-child(-n+2){
+    border: none;
+    border-bottom: 1px solid #626262;
+    outline: none;
+}
+
+.login-popup__close, .register-popup__close {
+    display: block;
+    text-decoration: none;
+    color: #626262;
+    text-align: center;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+.btn_login, .btn_register {
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 110px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ffffff;
+    padding-top: 10px;
+    color: #000000;
+}
+
+.btn_login:focus, .btn_register:focus {
+    background-color: #aca9a9;
+}

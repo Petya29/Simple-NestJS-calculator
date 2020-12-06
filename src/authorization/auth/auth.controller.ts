@@ -21,7 +21,7 @@ export class AuthController {
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
   async addUser(@Res() res: Response, @Body() usersDTO: UsersDTO){
-    await this.authService.addUser(usersDTO)
+    const newUser = await this.authService.addUser(usersDTO)
     //return res.json(newUser)
     res.redirect('/calculator')
   }

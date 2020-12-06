@@ -7,10 +7,10 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.useStaticAssets(join(__dirname, '..', '../public'));
   app.setBaseViewsDir([
-    join(__dirname, '..', 'public/views'),
-    join(__dirname, '..', 'public/views/stylesheets')
+    join(__dirname, '..', '../public/views'),
+    join(__dirname, '..', '../public/views/stylesheets')
 ]);
 
   app.setViewEngine('hbs');
