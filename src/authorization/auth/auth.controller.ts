@@ -1,4 +1,4 @@
-import { Controller, Get, Post, UseGuards, Request, Render, Res, Body, HttpStatus, Query, Redirect, HttpCode, Header } from '@nestjs/common';
+import { Controller, Get, Post, UseGuards, Request, Render, Res, Body, HttpStatus, Query, Redirect, HttpCode, Header, Delete, Param, NotFoundException } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
 import { query, Response } from 'express';
@@ -23,7 +23,7 @@ export class AuthController {
   async addUser(@Res() res: Response, @Body() usersDTO: UsersDTO){
     const newUser = await this.authService.addUser(usersDTO)
     //return res.json(newUser)
-    res.redirect('/calculator')
+    return res.redirect('/calculator')
   }
 
   @Get('users')
@@ -46,4 +46,13 @@ export class AuthController {
     return req.user;
   }
 
+  @Delete('users/:username')
+  @HttpCode(HttpStatus.ACCEPTED)
+  async deleteUser(@Param() param, @Res() res:Response) {
+    const deletedUser = await this.authService.removeUser(param.username)
+    if(!deletedUser){
+      throw new NotFoundException('User does nor exist !');
+    }
+    return res.json('User has been deleted !')
+  }
 }
